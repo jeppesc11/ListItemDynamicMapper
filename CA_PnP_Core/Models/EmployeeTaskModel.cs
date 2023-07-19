@@ -8,10 +8,14 @@ namespace CA_PnP_Core.Models {
         [SPField(internalName: "ID")]
         public string? Id { get; set; }
 
+        [SPField(internalName: "Title")]
+        public string? Title { get; set; }
+
         [SPField(internalName: "EmployeeTask_Done")]
         public bool? Done { get; set; }
 
-        [SPField(internalName: "EmployeeTask_Employeer")]
-        public FieldLookupValue? Employeer { get; set; }
+        // Bug - Property LookupValue was not yet loaded
+        //[SPField(internalName: "EmployeeTask_Employeer")]
+        //public FieldLookupValue? Employeer { get; set; }
     }
 }

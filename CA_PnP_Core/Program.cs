@@ -39,19 +39,11 @@ using (var scope = host.Services.CreateScope()) {
         var listByTitle = context.Web.Lists.GetByTitle<EmployeeTaskModel>(p => p.Title, p => p.Id, p => p.Items, p => p.Fields);
         var listByTitleItems = listByTitle.Items.AsRequested();
 
+        var items = context.Web.GetItems<EmployeeTaskModel>(p => p.Title, p => p.Id, p => p.Items, p => p.Fields);
 
-
-        var guidInit = new EmployeeTaskModel().GetListGuid();
-        var titleInit = new EmployeeTaskModel().GetListTitle();
-
-        var guid = typeof(EmployeeTaskModel).GetListGuid();
-        var title = typeof(EmployeeTaskModel).GetListTitle();
-
-        var list = context.Web.Lists.GetById(guidInit, p => p.Title, p => p.Id, p => p.Items, p => p.Fields);
-        var listItems = list.Items.AsRequested();
-
-        var firstElementAsObject = listItems.FirstOrDefault()?.Values.ToObject<EmployeeTaskModel>();
-        var dictionary = firstElementAsObject?.AsDictionary();
+        var firstItem = items.FirstOrDefault();
+        firstItem.Title = "N/A";
+        var updateItem = context.Web.UpdateItem(firstItem);
 
         Console.WriteLine();
     }
