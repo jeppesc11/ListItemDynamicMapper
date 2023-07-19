@@ -1,4 +1,5 @@
 # ListItemDynamicMapper
+> Build for PnP Core SDK
 
 ## Summary
 This is a small proof of concept (POC) for using custom attributes to map SharePoint list items to class models. It's similar to what we are used to in EF6, where we have the Column attribute and Table attribute.
