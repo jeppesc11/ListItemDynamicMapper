@@ -41,7 +41,7 @@ using (var scope = host.Services.CreateScope()) {
 
         var items = context.Web.GetItems<EmployeeTaskModel>(p => p.Title, p => p.Id, p => p.Items, p => p.Fields);
 
-        var firstItem = items.FirstOrDefault();
+        var firstItem = items.First();
         firstItem.Title = "N/A";
         var updateItem = context.Web.UpdateItem(firstItem);
 

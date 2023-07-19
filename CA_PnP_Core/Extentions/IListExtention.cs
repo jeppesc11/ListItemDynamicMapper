@@ -37,6 +37,12 @@ namespace CA_PnP_Core.Extentions {
         {
             IList list = web.Lists.GetListByType<T>();
             string? idAsString = item.GetType().GetProperty("Id")?.GetValue(item, null)?.ToString();
+
+            if(string.IsNullOrEmpty(idAsString))
+            {
+                throw new System.Exception("Id must be set");
+            }
+
             int id = int.Parse(idAsString);
             IListItem listItem = list.Items.GetById(id, p => p.Title, p => p.Id, p => p.FieldValuesAsHtml);
             listItem.PopulateFromDictionary(item.AsDictionary()).Update();
