@@ -20,7 +20,7 @@ IEnumerable<EmployeeTaskModel> items = context.Web.GetItems<EmployeeTaskModel>()
 EmployeeTaskModel updateItem = context.Web.UpdateItem(item);
 ```
 
-## Current limitations
+## Limitations
 | Limitation      | Description |
 | ----------- | ----------- |
 | FieldLookUpValue      | We can't get this to work, mainly because we can't figure out how to expand/include lookup values.       |
