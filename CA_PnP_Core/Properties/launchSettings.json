@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CA_PnP_Core": {
+      "commandName": "Project",
+      "environmentVariables": {
+      }
+    }
+  }
+}
